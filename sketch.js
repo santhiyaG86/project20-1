@@ -7,12 +7,10 @@ function preload() {
     tomimg=loadAnimation("images/cat2.png","images/cat3.png")
     jerryimg=loadImage("images/mouse1.png")
     tomImg3=loadImage("images/cat4.png");
-    jerryImg3=loadImage("images/mouse4.png")
-    jerryImg4=loadImage("images/mouse3.png")
+    jerryImg3=loadAnimation("images/mouse2.png","images/mouse3.png")
+    jerryImg4=loadImage("images/mouse4.png")
     tomImg4=loadImage("images/cat1.png")
-    jerryimg5=loadImage("images/mouse1.png")
-
-
+  
 }
 
 function setup(){
@@ -35,13 +33,13 @@ function draw() {
     if(tom.x - jerry.x < (tom.width - jerry.width)/2) 
 { tom.velocityX=0;
  tom.addImage("tomLastImage", tomImg3); 
- //tom.changeAnimation("tomLastImage")
+ tom.changeAnimation("tomLastImage")
 tom.x =300; 
 tom.scale=0.2; 
 tom.addImage("tomLastImage"); 
 jerry.addImage("jerryLastImage", jerryImg3); 
 jerry.scale=0.15;
- //jerry.changeAnimation("jerryLastImage"); 
+jerry.changeAnimation("jerryLastImage"); 
 
  }
 
@@ -53,12 +51,13 @@ jerry.scale=0.15;
 function keyPressed(){
 
   //For moving and changing animation write code here
-  if(keyCode === LEFT_ARROW){ tom.velocityX = -5; 
+  if(keyCode === LEFT_ARROW){ 
+    tom.velocityX = -5; 
     tom.addAnimation("tomrunning", tomimg);
-    // tom.changeAnimation("tomrunning"); 
+    tom.changeAnimation("tomrunning"); 
      jerry.addImage("jerryTeasing", jerryImg4); 
-     //jerry.frameDelay = 25; 
-    // jerry.changeAnimation("jerryTeasing"); 
+     jerry.frameDelay = 25; 
+     jerry.changeAnimation("jerryTeasing"); 
 }
 
 
